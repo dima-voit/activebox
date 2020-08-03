@@ -34,6 +34,18 @@ h1, h2, h3, h4, h5, h6 {
    z-index: 1000;
 }
 
+.header.fixed {
+    height: auto;
+    position: fixed;
+    background-color: #31344e;
+}
+
+.header.fixed .header__inner {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 0;
+}
+
 .header__inner {
     display: flex;
     justify-content: space-between;
@@ -358,9 +370,19 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #53354a;
 }
 
+.testimonials__slider {
+    height: 500px;
+    overflow: hidden;
+}
+
+.testimonials__slider.slick-initialized {
+    height: auto;
+}
+
 .testimonials__item {
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 .testimonials__photo {
@@ -399,6 +421,44 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     text-transform: uppercase;
     color: #fff;
+}
+
+.slick-dots {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0 0 10px;
+    list-style: none;
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.slick-dots li {
+    margin: 0 5px;
+}
+
+.slick-dots button {
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 50%;
+    border: 0;
+    padding: 0;
+    font-size: 0;
+    color: transparent;
+    opacity: .5;
+    cursor: pointer;
+}
+
+.slick-dots button:focus {
+    outline: 0;
+}
+
+.slick-dots .slick-active button {
+    opacity: 1;
 }
 
 /* Download */
@@ -483,7 +543,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-
 /* Media */
 @media (max-width: 1300px) {
     /* Works */
@@ -495,6 +554,21 @@ h1, h2, h3, h4, h5, h6 {
     /* Nav */
     .nav {
         display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: right;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #31344e;
+    }
+
+    .nav.show {
+        display: flex;
+    }
+
+    .nav__link {
+        padding: 9px 15px;
     }
 
     .burger {
